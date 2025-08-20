@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina Hanna Faheem - Electrical Power Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SwiperJS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Light Mode Variables (Default) */
+        :root, .light {
+            --bg-color: #f0f2f5;
+            --text-color: #111827;
+            --text-muted-color: #4b5563;
+            --container-bg: #ffffff;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb;
+            --header-bg-start: #2563eb;
+            --header-bg-end: #3b82f6;
+            --header-text: #ffffff;
+            --accent-color: #2563eb;
+            --accent-text: #ffffff;
+            --timeline-dot: #2563eb;
+            --timeline-line: #d1d5db;
+            --tab-active-border: #2563eb;
+            --tab-active-text: #2563eb;
+            --tab-inactive-text: #6b7280;
+            --section-title-border: #2563eb;
+            --section-title-text: #1e3a8a;
+            --container-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+            --modal-overlay-bg: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Dark Mode Variables */
+        .dark {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --text-muted-color: #8b949e;
+            --container-bg: #161b22;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --header-bg-start: #161b22;
+            --header-bg-end: #161b22;
+            --header-text: #ffffff;
+            --accent-color: #fcd34d;
+            --accent-text: #161b22;
+            --timeline-dot: #fcd34d;
+            --timeline-line: #30363d;
+            --tab-active-border: #fcd34d;
+            --tab-active-text: #f0f6fc;
+            --tab-inactive-text: #8b949e;
+            --section-title-border: #fcd34d;
+            --section-title-text: #c9d1d9;
+            --container-shadow: none;
+            --modal-overlay-bg: rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Applying variables */
+        body { background-color: var(--bg-color); color: var(--text-color); }
+        .main-container { background-color: var(--container-bg); box-shadow: var(--container-shadow); }
+        .bg-card { background-color: var(--card-bg); }
+        .border-color { border-color: var(--border-color); }
+        .text-muted { color: var(--text-muted-color); }
+        .header-bg { background-image: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end)); color: var(--header-text); }
+        .dark .header-bg { background-image: url('https://www.transparenttextures.com/patterns/subtle-prism.png'); background-blend-mode: color-dodge; }
+
+        .accent-text { color: var(--accent-color); }
+        .accent-border { border-color: var(--accent-color); }
+        .timeline { border-left-color: var(--timeline-line); }
+        html[dir="rtl"] .timeline { border-right-color: var(--timeline-line); border-left-color: transparent; }
+        .timeline-item::before { background-color: var(--timeline-dot); border: 3px solid var(--container-bg); }
+        .tab-button[aria-selected="true"] { border-color: var(--tab-active-border); color: var(--tab-active-text); }
+        .tab-button { color: var(--tab-inactive-text); }
+        .section-title { color: var(--section-title-text); border-left-color: var(--section-title-border); }
+        html[dir="rtl"] .section-title { border-right-color: var(--section-title-border); border-left-color: transparent; }
+        .btn, #submit-button { background-color: var(--accent-color); color: var(--accent-text); transition: all 0.2s ease-in-out; }
+        .btn:hover, #submit-button:hover { filter: brightness(1.1); transform: scale(1.02); }
+        .btn:active, #submit-button:active { transform: scale(0.98); }
+        
+        .card { border: 1px solid var(--border-color); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .main-container .card { box-shadow: var(--container-shadow); }
+        .dark .main-container .card { box-shadow: none; }
+
+        .modal-trigger:hover { transform: translateY(-5px); border-color: var(--accent-color); cursor: pointer; }
+        .link-card:hover { border-color: var(--accent-color); transform: translateY(-3px);}
+        input, textarea { background-color: var(--container-bg); border-color: var(--border-color); color: var(--text-color); }
+        input:focus, textarea:focus { --tw-ring-color: var(--accent-color); border-color: var(--accent-color); }
+
+        .modal-overlay { background-color: var(--modal-overlay-bg); transition: opacity 0.3s ease-in-out; }
+        .modal-content, .gallery-modal-content { background-color: var(--container-bg); border: 1px solid var(--border-color); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); transition: transform 0.3s ease-in-out; }
+
+        /* --- Animation Keyframes --- */
+        @keyframes subtle-pulse {
+          0%, 100% { text-shadow: 0 0 4px var(--accent-color); }
+          50% { text-shadow: 0 0 12px var(--accent-color); }
+        }
+        @keyframes shine-effect {
+            0% { transform: translateX(-150%) skewX(-30deg); }
+            100% { transform: translateX(150%) skewX(-30deg); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes jiggle {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(-3deg); }
+          75% { transform: rotate(3deg); }
+        }
+        @keyframes pulse-fab {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); }
+            50% { box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0); }
+        }
+        @keyframes animated-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Animation Applications --- */
+        .header-bg {
+            background-size: 200% 200%;
+            animation: animated-gradient 15s ease infinite;
+        }
+        .header-bg h1 { animation: subtle-pulse 6s ease-in-out infinite; }
+        
+        .card {
+            animation: float 8s ease-in-out infinite;
+        }
+        .grid .card:nth-of-type(2n) {
+            animation-duration: 7s;
+            animation-delay: -2s;
+        }
+        .grid .card:nth-of-type(3n) {
+            animation-duration: 9s;
+            animation-delay: -4s;
+        }
+        .grid .card:nth-of-type(4n) {
+            animation-duration: 6s;
+            animation-delay: -1s;
+        }
+
+        .link-card:hover i, .link-card:hover img {
+           animation: jiggle 0.4s ease-in-out;
+        }
+
+        .card i, .link-card i { transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .card:hover i, .link-card:hover i { transform: scale(1.1); }
+        .link-card:hover img { transform: scale(1.1); }
+        
+        #save-contact-btn {
+            animation: pulse-fab 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        .shine-effect { position: relative; overflow: hidden; }
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            animation: shine-effect 4s infinite linear;
+            animation-delay: 2s;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        .title-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+        .spinner { border-top-color: var(--accent-color) !important; }
+
+        /* --- Language Switcher Improved --- */
+        .lang-switcher-container { background-color: rgba(128, 128, 128, 0.1); border: 1px solid var(--border-color); padding: 4px; }
+        .dark .lang-switcher-container { background-color: rgba(0,0,0,0.2); }
+        .lang-btn { padding: 6px 10px; font-size: 0.85rem; color: var(--text-muted-color); transition: all 0.3s ease; }
+        .lang-btn.active, .lang-btn:hover { opacity: 1; font-weight: bold; background-color: var(--accent-color); color: var(--accent-text); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .lang-btn:not(.active):hover { color: var(--text-color); }
+        
+        /* Swiper Styles */
+        .swiper-button-next, .swiper-button-prev { color: var(--accent-color) !important; }
+        .swiper-pagination-bullet-active { background: var(--accent-color) !important; }
+        .gallery-modal-content .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto p-2 sm:p-4">
+        <div class="main-container rounded-2xl overflow-hidden border-2 border-color">
+            
+            <header class="header-bg p-6 md:p-8 text-center relative">
+                 <div class="dark:absolute dark:inset-0 dark:bg-black dark:opacity-60"></div>
+                 <div class="relative z-10 flex flex-col items-center">
+                     <img src="https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/personal-image//Mina%20Hanna.png" alt="Mina Hanna Faheem" class="w-32 h-32 rounded-full border-4 accent-border shadow-lg mb-4">
+                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold" data-translate-key="name">Mina Hanna Faheem</h1>
+                     <p class="text-lg sm:text-xl md:text-2xl mt-2 font-semibold text-white dark:text-amber-300 title-shadow" data-translate-key="jobTitle">Electrical Power Engineer</p>
+                     <a href="https://drive.google.com/file/d/1_LcfvIK4CKGtTUaiI1gG0X1jDdh1D46l/view?usp=sharing" target="_blank" class="btn font-bold py-2 px-6 rounded-full mt-6 inline-block" data-translate-key="downloadCV">
+                         <i class="fas fa-download mr-2 rtl:ml-2 rtl:mr-0"></i> Download CV
+                     </a>
+                 </div>
+            </header>
+
+            <div class="border-b border-color bg-card sticky top-0 z-20 flex justify-center items-center px-2 sm:px-4">
+                <nav class="flex-grow flex justify-center -mb-px flex-wrap" role="tablist" aria-label="Main Navigation">
+                    <button role="tab" aria-selected="false" aria-controls="summary-panel" id="summary-tab" class="tab-button py-3 px-3 sm:px-4 text-sm sm:text-base" data-translate-key="nav_summary">Summary</button>
+                    <button role="tab" aria-selected="false" aria-controls="experience-panel" id="experience-tab" class="tab-button py-3 px-3 sm:px-4 text-sm sm:text-base" data-translate-key="nav_experience">Experience</button>
+                    <button role="tab" aria-selected="false" aria-controls="projects-panel" id="projects-tab" class="tab-button py-3 px-3 sm:px-4 text-sm sm:text-base" data-translate-key="nav_projects">Projects</button>
+                    <button role="tab" aria-selected="false" aria-controls="skills-panel" id="skills-tab" class="tab-button py-3 px-3 sm:px-4 text-sm sm:text-base" data-translate-key="nav_skills">Skills</button>
+                    <button role="tab" aria-selected="false" aria-controls="certs-panel" id="certs-tab" class="tab-button py-3 px-3 sm:px-4 text-sm sm:text-base" data-translate-key="nav_activities">Activities</button>
+                    <button role="tab" aria-selected="true" aria-controls="contact-panel" id="contact-tab" class="tab-button py-3 px-3 sm:px-4 text-sm sm:text-base" data-translate-key="nav_contact">Contact & Links</button>
+                </nav>
+                 <div class="flex items-center space-x-2 rtl:space-x-reverse ml-2 rtl:mr-2">
+                     <div id="lang-switcher" class="flex items-center space-x-1 rtl:space-x-reverse lang-switcher-container rounded-full">
+                         <button class="lang-btn rounded-full" data-lang="en">EN</button>
+                         <button class="lang-btn rounded-full" data-lang="ar">AR</button>
+                         <button class="lang-btn rounded-full" data-lang="de">DE</button>
+                         <button class="lang-btn rounded-full" data-lang="es">ES</button>
+                     </div>
+                     <button id="theme-toggle" type="button" aria-label="Toggle dark and light theme" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                         <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                     </button>
+                 </div>
+            </div>
+
+            <main class="p-4 sm:p-6">
+                <div id="summary-panel" role="tabpanel" aria-labelledby="summary-tab" class="tab-content hidden">
+                    <div class="card p-6 lg:p-8 rounded-lg reveal">
+                        <h2 class="text-2xl font-bold section-title pl-4 mb-4" data-translate-key="summary_title">Summary</h2>
+                        <p class="text-lg leading-relaxed" data-translate-key="summary_text">
+                            A proactive and results-oriented Electrical Power Engineer with a strong academic background and extensive hands-on experience in industrial automation and power systems. Proven ability to lead and manage teams, demonstrated by successfully increasing social media engagement by 70% as a Webmaster and overseeing communications for a 150+ member IEEE student branch. Proficient in a wide range of technical skills including PLC/SCADA programming (Siemens), power system analysis with MATLAB, and lighting design with AutoCAD & DIALux Evo. A passionate problem-solver and continuous learner, dedicated to applying technical knowledge to create efficient and innovative solutions.
+                        </p>
+                    </div>
+                </div>
+                
+                <div id="experience-panel" role="tabpanel" aria-labelledby="experience-tab" class="tab-content hidden">
+                    <div class="card p-6 lg:p-8 rounded-lg reveal">
+                        <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="experience_title">Experience</h2>
+                        <div class="relative timeline pl-8">
+                             <div class="mb-8 timeline-item">
+                                 <h3 class="text-xl font-semibold accent-text" data-translate-key="exp1_title">Branch Secretary</h3>
+                                 <p class="text-md text-muted" data-translate-key="exp1_company">IEEE ET5 Student Branch (IEEE NCSB) | May 2025 - Present</p>
+                                 <ul class="list-disc pl-5 mt-2 space-y-1">
+                                     <li data-translate-key="exp1_desc1">Oversee all official communications, including meeting minutes and membership records for a branch of 150+ members.</li>
+                                     <li data-translate-key="exp1_desc2">Develop and streamline branch reports for submission to IEEE regional leadership.</li>
+                                 </ul>
+                             </div>
+                             <div class="mb-8 timeline-item">
+                                 <h3 class="text-xl font-semibold accent-text" data-translate-key="exp2_title">Webmaster & Social Media Officer</h3>
+                                 <p class="text-md text-muted" data-translate-key="exp2_company">IEEE ET5 Student Branch (IEEE NCSB) | Oct 2024 - May 2025</p>
+                                  <ul class="list-disc pl-5 mt-2 space-y-1">
+                                     <li data-translate-key="exp2_desc1">Redesigned branch website and managed social media channels, increasing engagement by 70%.</li>
+                                     <li data-translate-key="exp2_desc2">Created event banners and technical content for online audiences.</li>
+                                 </ul>
+                             </div>
+                             <div class="timeline-item">
+                                 <h3 class="text-xl font-semibold accent-text" data-translate-key="exp3_title">Organizational & Technical Member</h3>
+                                 <p class="text-md text-muted" data-translate-key="exp3_company">IEEE ET5 Student Branch (IEEE NCSB) | Oct 2022 - Sep 2024</p>
+                                  <ul class="list-disc pl-5 mt-2 space-y-1">
+                                     <li data-translate-key="exp3_desc1">Coordinated logistics and planning for 5+ technical workshops and student events.</li>
+                                     <li data-translate-key="exp3_desc2">Managed the preparation and distribution of materials and documentation for all branch activities.</li>
+                                 </ul>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="projects-panel" role="tabpanel" aria-labelledby="projects-tab" class="tab-content hidden">
+                     <div class="card p-6 lg:p-8 rounded-lg reveal">
+                         <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="projects_title">Projects</h2>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                             <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#project1-modal">
+                                 <h3 class="text-xl font-bold accent-text mb-2" data-translate-key="proj1_title">Light Detection Sensor Circuit</h3>
+                                 <p class="font-semibold text-muted mb-2" data-translate-key="proj_subtitle">Academic Project</p>
+                                 <p data-translate-key="proj1_desc">Designed and simulated a light-detection circuit integrated with lighting control to reduce energy use and improve system efficiency.</p>
+                                 <span class="accent-text mt-4 inline-block font-semibold" data-translate-key="view_details">View Details &rarr;</span>
+                             </div>
+                             <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#project2-modal">
+                                 <h3 class="text-xl font-bold accent-text mb-2" data-translate-key="proj2_title">Power Systems Analysis</h3>
+                                  <p class="font-semibold text-muted mb-2" data-translate-key="proj_subtitle">Academic Project</p>
+                                 <p data-translate-key="proj2_desc">Used MATLAB to model and analyze faults, monitor system performance, and simplify complex network structures using graph theory.</p>
+                                 <span class="accent-text mt-4 inline-block font-semibold" data-translate-key="view_details">View Details &rarr;</span>
+                             </div>
+                         </div>
+                          <h2 class="text-2xl font-bold section-title pl-4 mt-10 mb-6" data-translate-key="research_title">Recent Research & Presentations</h2>
+                          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                              <div class="card p-4 rounded-lg text-center"><i class="fas fa-book-open accent-text text-2xl mb-2"></i><p data-translate-key="res1">Transformer Design</p></div>
+                              <div class="card p-4 rounded-lg text-center"><i class="fas fa-book-open accent-text text-2xl mb-2"></i><p data-translate-key="res2">Earthing System</p></div>
+                              <div class="card p-4 rounded-lg text-center"><i class="fas fa-book-open accent-text text-2xl mb-2"></i><p data-translate-key="res3">Static & Microprocessor Relays</p></div>
+                              <div class="card p-4 rounded-lg text-center"><i class="fas fa-book-open accent-text text-2xl mb-2"></i><p data-translate-key="res4">AC/DC Transmission Lines</p></div>
+                          </div>
+                     </div>
+                </div>
+
+                <div id="skills-panel" role="tabpanel" aria-labelledby="skills-tab" class="tab-content hidden">
+                    <div class="card p-6 lg:p-8 rounded-lg reveal">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <section>
+                                <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="tech_skills_title">Technical Skills</h2>
+                                <div class="space-y-4">
+                                    <div class="card p-4 rounded-lg"><h4 class="font-semibold text-lg accent-text"><i class="fas fa-microchip mr-2 rtl:ml-2 rtl:mr-0"></i>PLC/SCADA</h4><p>Siemens TIA Portal, WinCC, Simatic Manager</p></div>
+                                    <div class="card p-4 rounded-lg"><h4 class="font-semibold text-lg accent-text"><i class="fas fa-cogs mr-2 rtl:ml-2 rtl:mr-0"></i>Simulation</h4><p>Factory IO, MATLAB, EKTS</p></div>
+                                    <div class="card p-4 rounded-lg"><h4 class="font-semibold text-lg accent-text"><i class="fas fa-drafting-compass mr-2 rtl:ml-2 rtl:mr-0"></i>Design & Lighting</h4><p>AutoCAD, DIALux Evo</p></div>
+                                    <div class="card p-4 rounded-lg"><h4 class="font-semibold text-lg accent-text"><i class="fas fa-file-powerpoint mr-2 rtl:ml-2 rtl:mr-0"></i>Office Suite</h4><p>MS Excel, Word, PowerPoint</p></div>
+                                    <div class="card p-4 rounded-lg"><h4 class="font-semibold text-lg accent-text"><i class="fas fa-robot mr-2 rtl:ml-2 rtl:mr-0"></i>AI Tools</h4><p data-translate-key="ai_tools_desc">Generative AI for R&D</p></div>
+                                </div>
+                                <h2 class="text-2xl font-bold section-title pl-4 mb-6 mt-8" data-translate-key="soft_skills_title">Soft Skills</h2>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                   <div class="card p-4 rounded-lg flex items-center"><i class="fas fa-users-cog accent-text text-xl mr-3 rtl:ml-3 rtl:mr-0"></i><p data-translate-key="soft_skill1">Leadership & Management</p></div>
+                                   <div class="card p-4 rounded-lg flex items-center"><i class="fas fa-lightbulb accent-text text-xl mr-3 rtl:ml-3 rtl:mr-0"></i><p data-translate-key="soft_skill2">Problem Solving</p></div>
+                                   <div class="card p-4 rounded-lg flex items-center"><i class="fas fa-clock accent-text text-xl mr-3 rtl:ml-3 rtl:mr-0"></i><p data-translate-key="soft_skill3">Time Management</p></div>
+                                   <div class="card p-4 rounded-lg flex items-center"><i class="fas fa-comments accent-text text-xl mr-3 rtl:ml-3 rtl:mr-0"></i><p data-translate-key="soft_skill4">Communication</p></div>
+                                   <div class="card p-4 rounded-lg flex items-center"><i class="fas fa-brain accent-text text-xl mr-3 rtl:ml-3 rtl:mr-0"></i><p data-translate-key="soft_skill5">Continuous Learning</p></div>
+                                   <div class="card p-4 rounded-lg flex items-center"><i class="fas fa-chalkboard-teacher accent-text text-xl mr-3 rtl:ml-3 rtl:mr-0"></i><p data-translate-key="soft_skill6">Lecturing</p></div>
+                                </div>
+                            </section>
+                            <section>
+                                 <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="education_title">Education</h2>
+                                 <div class="space-y-4">
+                                    <div class="card p-4 rounded-lg"><h3 class="text-xl font-semibold accent-text" data-translate-key="edu1_title">Bachelor of Electrical Engineering</h3><p class="text-md text-muted" data-translate-key="edu1_school">New Cairo Academy (2021-2026)</p></div>
+                                    <div class="card p-4 rounded-lg"><h3 class="text-xl font-semibold accent-text" data-translate-key="edu2_title">Diploma in Architecture</h3><p class="text-md text-muted" data-translate-key="edu2_school">Dar El Salam Architectural School (2016-2021)</p></div>
+                                 </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="certs-panel" role="tabpanel" aria-labelledby="certs-tab" class="tab-content hidden">
+                    <div class="card p-6 lg:p-8 rounded-lg reveal">
+                        <section>
+                            <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="certs_title">Certificates & Courses</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-arab-contractors"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert1_title">Electrical Distribution in Buildings</h3><p class="font-semibold text-muted">The Arab Contractors <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted">Jan 2023 - Feb 2023</p></div>
+                                 <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-classic-control"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert2_title">Classic Control</h3><p class="font-semibold text-muted">HA Consulting Group <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted">Jun 2023 - Jul 2023</p></div>
+                                 <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-plc-basic"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert3_title">PLC Basic Programming</h3><p class="font-semibold text-muted">HA Consulting Group <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted">Jul 2024 - Aug 2024</p></div>
+                                 <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-motor-drive"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert4_title">Electric Motor & Drive Programming</h3><p class="font-semibold text-muted">HA Consulting Group <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted">Aug 2024 - Aug 2024</p></div>
+                                <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-dialux"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert5_title">DIALux Evo, AutoCAD & Load Estimation</h3><p class="font-semibold text-muted">Eduneers <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted" data-translate-key="cert5_duration">20 hours</p></div>
+                                 <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-plc-advanced"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert6_title">Advanced PLC Programming</h3><p class="font-semibold text-muted">HA Consulting Group <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted" data-translate-key="in_progress">In Progress</p></div>
+                                 <div class="card p-6 rounded-lg"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert7_title">SCADA and HMI</h3><p class="font-semibold text-muted">HA Consulting Group</p><p class="text-sm text-muted" data-translate-key="in_progress">In Progress</p></div>
+                                 <div class="card modal-trigger p-6 rounded-lg" data-modal-target="#gallery-knx"><h3 class="font-bold accent-text text-lg mb-2" data-translate-key="cert8_title">KNX Online Full Course</h3><p class="font-semibold text-muted">KNX Porto Online <i class="fas fa-camera text-xs ml-1 rtl:mr-1 rtl:ml-0"></i></p><p class="text-sm text-muted" data-translate-key="online_course">Online Course</p></div>
+                            </div>
+                        </section>
+                        <section class="mt-10">
+                            <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="events_title">Events & Volunteering</h2>
+                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                 <div class="card p-4 rounded-lg text-center"><i class="fas fa-users accent-text text-3xl mb-2"></i><p class="font-semibold" data-translate-key="event1">Kaizen 2025</p></div>
+                                 <div class="card modal-trigger p-4 rounded-lg text-center" data-modal-target="#gallery-siraj"><i class="fas fa-lightbulb accent-text text-3xl mb-2"></i><p class="font-semibold" data-translate-key="event2">Siraj & Flare Labs</p></div>
+                                 <div class="card p-4 rounded-lg text-center"><i class="fas fa-gas-pump accent-text text-3xl mb-2"></i><p class="font-semibold" data-translate-key="event3">EGYPES</p></div>
+                                  <div class="card modal-trigger p-4 rounded-lg text-center" data-modal-target="#gallery-tech-shift"><i class="fas fa-calendar-check accent-text text-3xl mb-2"></i><p class="font-semibold" data-translate-key="event4">Tech Shift Summit</p></div>
+                                  <div class="card modal-trigger p-4 rounded-lg text-center" data-modal-target="#gallery-officers-meeting"><i class="fas fa-handshake accent-text text-3xl mb-2"></i><p class="font-semibold" data-translate-key="event5">IEEE Officers Meeting Q2 2025</p></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <div id="contact-panel" role="tabpanel" aria-labelledby="contact-tab" class="tab-content">
+                     <div class="card p-6 lg:p-8 rounded-lg reveal">
+                        <h2 class="text-2xl font-bold section-title pl-4 mb-6" data-translate-key="links_title">Find Me Online</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+                            <a href="https://wa.me/201203006152" target="_blank" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center"><i class="fab fa-whatsapp text-4xl mb-2 text-green-500"></i><span class="font-semibold text-lg">WhatsApp</span></a>
+                            <a href="https://www.linkedin.com/in/engminahanna/" target="_blank" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center"><i class="fab fa-linkedin text-4xl mb-2 text-sky-500"></i><span class="font-semibold text-lg">LinkedIn</span></a>
+                            <a href="https://www.youtube.com/@Eng-MinaHanna" target="_blank" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center"><i class="fab fa-youtube text-4xl mb-2 text-red-600"></i><span class="font-semibold text-lg">YouTube</span></a>
+                            <a href="https://www.facebook.com/Eng.Mina.H.F" target="_blank" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center"><i class="fab fa-facebook text-4xl mb-2 text-blue-600"></i><span class="font-semibold text-lg">Facebook</span></a>
+                            <a href="https://minal0p.github.io/Flash-Team/" target="_blank" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center">
+                                <img src="https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/drive/Flash.png" alt="Flash Team Logo" class="h-10 w-10 object-contain mb-2 transition-transform duration-300">
+                                <span class="font-semibold text-lg">Flash-Team</span>
+                            </a>
+                            <a href="https://studentbranches.ieee.org/eg-hiet-sb/" target="_blank" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center"><i class="fas fa-globe text-4xl mb-2 text-cyan-400"></i><span class="font-semibold text-lg" data-translate-key="ieee_branch">IEEE ET5 SB</span></a>
+                            <a href="mailto:minahanna@ieee.org" class="card link-card p-6 rounded-lg flex flex-col justify-center items-center"><i class="fas fa-envelope text-4xl mb-2"></i><span class="font-semibold text-lg">Email</span></a>
+                        </div>
+
+                         <h2 class="text-2xl font-bold section-title pl-4 mt-12 mb-6" data-translate-key="contact_title">Get In Touch</h2>
+                         <div class="max-w-2xl mx-auto">
+                            <form id="contact-form">
+                                <div class="mb-4"><label for="name" class="block mb-2 text-sm font-medium" data-translate-key="form_name">Your Name</label><input type="text" id="name" name="from_name" class="border text-sm rounded-lg block w-full p-2.5" data-translate-key-placeholder="form_name_placeholder" placeholder="John Doe" required></div>
+                                <div class="mb-4"><label for="email" class="block mb-2 text-sm font-medium" data-translate-key="form_email">Your Email</label><input type="email" id="email" name="from_email" class="border text-sm rounded-lg block w-full p-2.5" data-translate-key-placeholder="form_email_placeholder" placeholder="name@company.com" required></div>
+                                <div class="mb-6"><label for="message" class="block mb-2 text-sm font-medium" data-translate-key="form_message">Your Message</label><textarea id="message" name="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border" data-translate-key-placeholder="form_message_placeholder" placeholder="Leave a comment..." required></textarea></div>
+                                <button type="submit" id="submit-button" class="btn font-bold py-2.5 px-8 rounded-full w-full" data-translate-key="form_send">Send Message</button>
+                            </form>
+                            <div id="form-feedback" class="hidden text-center mt-6"></div>
+                         </div>
+                     </div>
+                </div>
+
+            </main>
+
+             <footer class="text-center p-4 bg-card border-t border-color">
+                 <p class="text-sm text-muted" data-translate-key="footer_text">&copy; 2025 Mina Hanna Faheem. All rights reserved.</p>
+             </footer>
+
+        </div>
+    </div>
+    
+    <!-- Modals Container -->
+    <div id="project1-modal" class="modal-overlay fixed inset-0 z-30 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="modal-content rounded-lg max-w-2xl w-full p-8 relative transform scale-95">
+            <button class="modal-close-button absolute top-4 right-4 text-muted hover:text-color text-2xl" aria-label="Close modal">&times;</button>
+            <h3 class="text-2xl font-bold accent-text mb-4" data-translate-key="proj1_title">Light Detection Sensor Circuit</h3>
+            <p class="mb-4" data-translate-key="proj1_full_desc">This academic project involved the complete design and simulation of a smart lighting system. The core of the project was to develop a circuit that could accurately detect ambient light levels and automatically adjust artificial lighting to maintain optimal illumination while minimizing energy consumption.</p>
+            <h4 class="font-semibold accent-text mt-6 mb-2" data-translate-key="key_features">Key Features:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+                <li data-translate-key="proj1_feat1">Integration of LDR (Light Dependent Resistor) for light sensing.</li>
+                <li data-translate-key="proj1_feat2">Control logic implemented to switch lighting on/off based on preset thresholds.</li>
+                <li data-translate-key="proj1_feat3">Simulation performed to validate circuit performance and energy savings.</li>
+                <li data-translate-key="proj1_feat4">Focus on creating an efficient and cost-effective solution for automated lighting.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="project2-modal" class="modal-overlay fixed inset-0 z-30 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="modal-content rounded-lg max-w-2xl w-full p-8 relative transform scale-95">
+            <button class="modal-close-button absolute top-4 right-4 text-muted hover:text-color text-2xl" aria-label="Close modal">&times;</button>
+            <h3 class="text-2xl font-bold accent-text mb-4" data-translate-key="proj2_title">Power Systems Analysis</h3>
+            <p class="mb-4" data-translate-key="proj2_full_desc">This project utilized MATLAB and Simulink to create a comprehensive model of a power distribution network. The objective was to analyze system behavior under various fault conditions and to understand the flow of power throughout the network.</p>
+             <h4 class="font-semibold accent-text mt-6 mb-2" data-translate-key="key_activities">Key Activities:</h4>
+             <ul class="list-disc pl-5 space-y-1">
+                 <li data-translate-key="proj2_act1">Modeled various types of faults (e.g., line-to-ground, line-to-line).</li>
+                 <li data-translate-key="proj2_act2">Performed load flow analysis to determine voltage levels and power distribution.</li>
+                 <li data-translate-key="proj2_act3">Applied graph theory to simplify and visualize the complex network topology.</li>
+                 <li data-translate-key="proj2_act4">Generated detailed reports and visualizations of system performance under stress.</li>
+             </ul>
+        </div>
+    </div>
+    
+    <!-- Gallery Modals Container -->
+    <div id="gallery-modals"></div>
+
+    <!-- Floating Action Button: Save Contact -->
+    <a id="save-contact-btn" href="#" download="MinaHannaFaheem.vcf" class="group fixed bottom-4 right-4 rtl:right-auto rtl:left-4 w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out z-30 btn shine-effect">
+        <i class="fas fa-address-card text-2xl"></i>
+        <span class="absolute bottom-1/2 translate-y-1/2 right-full mr-4 rtl:right-auto rtl:left-full rtl:ml-4 px-3 py-1.5 bg-gray-800 dark:bg-gray-700 text-white dark:text-gray-200 text-sm font-semibold rounded-md shadow-md opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-in-out whitespace-nowrap" data-translate-key="save_contact">
+            Save Contact
+        </span>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const translations = {
+                en: { pageTitle: "Mina Hanna Faheem - Electrical Power Engineer", name: "Mina Hanna Faheem", jobTitle: "Electrical Power Engineer", downloadCV: '<i class="fas fa-download mr-2"></i> Download CV', nav_summary: "Summary", nav_experience: "Experience", nav_projects: "Projects", nav_skills: "Skills", nav_activities: "Activities", nav_contact: "Contact & Links", summary_title: "Summary", summary_text: "A proactive and results-oriented Electrical Power Engineer with a strong academic background and extensive hands-on experience in industrial automation and power systems. Proven ability to lead and manage teams, demonstrated by successfully increasing social media engagement by 70% as a Webmaster and overseeing communications for a 150+ member IEEE student branch. Proficient in a wide range of technical skills including PLC/SCADA programming (Siemens), power system analysis with MATLAB, and lighting design with AutoCAD & DIALux Evo. A passionate problem-solver and continuous learner, dedicated to applying technical knowledge to create efficient and innovative solutions.", experience_title: "Experience", exp1_title: "Branch Secretary", exp1_company: "IEEE ET5 Student Branch (IEEE NCSB) | May 2025 - Present", exp1_desc1: "Oversee all official communications, including meeting minutes and membership records for a branch of 150+ members.", exp1_desc2: "Develop and streamline branch reports for submission to IEEE regional leadership.", exp2_title: "Webmaster & Social Media Officer", exp2_company: "IEEE ET5 Student Branch (IEEE NCSB) | Oct 2024 - May 2025", exp2_desc1: "Redesigned branch website and managed social media channels, increasing engagement by 70%.", exp2_desc2: "Created event banners and technical content for online audiences.", exp3_title: "Organizational & Technical Member", exp3_company: "IEEE ET5 Student Branch (IEEE NCSB) | Oct 2022 - Sep 2024", exp3_desc1: "Coordinated logistics and planning for 5+ technical workshops and student events.", exp3_desc2: "Managed the preparation and distribution of materials and documentation for all branch activities.", projects_title: "Projects", proj_subtitle: "Academic Project", view_details: "View Details &rarr;", proj1_title: "Light Detection Sensor Circuit", proj1_desc: "Designed and simulated a light-detection circuit integrated with lighting control to reduce energy use and improve system efficiency.", proj2_title: "Power Systems Analysis", proj2_desc: "Used MATLAB to model and analyze faults, monitor system performance, and simplify complex network structures using graph theory.", research_title: "Recent Research & Presentations", res1: "Transformer Design", res2: "Earthing System", res3: "Static & Microprocessor Relays", res4: "AC/DC Transmission Lines", tech_skills_title: "Technical Skills", ai_tools_desc: "Generative AI for R&D", soft_skills_title: "Soft Skills", soft_skill1: "Leadership & Management", soft_skill2: "Problem Solving", soft_skill3: "Time Management", soft_skill4: "Communication", soft_skill5: "Continuous Learning", soft_skill6: "Lecturing", education_title: "Education", edu1_title: "Bachelor of Electrical Engineering", edu1_school: "New Cairo Academy (2021-2026)", edu2_title: "Diploma in Architecture", edu2_school: "Dar El Salam Architectural School (2016-2021)", certs_title: "Certificates & Courses", cert1_title: "Electrical Distribution in Buildings", cert2_title: "Classic Control", cert3_title: "PLC Basic Programming", cert4_title: "Electric Motor & Drive Programming", cert5_title: "DIALux Evo, AutoCAD & Load Estimation", cert5_duration: "20 hours", cert6_title: "Advanced PLC Programming", cert7_title: "SCADA and HMI", cert8_title: "KNX Online Full Course", online_course: "Online Course", in_progress: "In Progress", events_title: "Events & Volunteering", event1: "Kaizen 2025", event2: "Siraj & Flare Labs", event3: "EGYPES", event4: "Tech Shift Summit", event5: "IEEE Officers Meeting Q2 2025", contact_title: "Get In Touch", form_name: "Your Name", form_name_placeholder: "John Doe", form_email: "Your Email", form_email_placeholder: "name@company.com", form_message: "Your Message", form_message_placeholder: "Leave a comment...", form_send: "Send Message", links_title: "Find Me Online", save_contact: "Save Contact", ieee_branch: "IEEE ET5 SB", footer_text: "&copy; 2025 Mina Hanna Faheem. All rights reserved.", proj1_full_desc: "This academic project involved the complete design and simulation of a smart lighting system. The core of the project was to develop a circuit that could accurately detect ambient light levels and automatically adjust artificial lighting to maintain optimal illumination while minimizing energy consumption.", key_features: "Key Features:", proj1_feat1: "Integration of LDR (Light Dependent Resistor) for light sensing.", proj1_feat2: "Control logic implemented to switch lighting on/off based on preset thresholds.", proj1_feat3: "Simulation performed to validate circuit performance and energy savings.", proj1_feat4: "Focus on creating an efficient and cost-effective solution for automated lighting.", proj2_full_desc: "This project utilized MATLAB and Simulink to create a comprehensive model of a power distribution network. The objective was to analyze system behavior under various fault conditions and to understand the flow of power throughout the network.", key_activities: "Key Activities:", proj2_act1: "Modeled various types of faults (e.g., line-to-ground, line-to-line).", proj2_act2: "Performed load flow analysis to determine voltage levels and power distribution.", proj2_act3: "Applied graph theory to simplify and visualize the complex network topology.", proj2_act4: "Generated detailed reports and visualizations of system performance under stress." },
+                ar: { pageTitle: "مينا حنا فهيم - مهندس قوى كهربائية", name: "مينا حنا فهيم", jobTitle: "مهندس قوى كهربائية", downloadCV: '<i class="fas fa-download ml-2"></i> تحميل السيرة الذاتية', nav_summary: "ملخص", nav_experience: "الخبرة", nav_projects: "المشاريع", nav_skills: "المهارات", nav_activities: "الأنشطة", nav_contact: "تواصل وروابط", summary_title: "ملخص احترافي", summary_text: "مهندس قوى كهربائية استباقي وموجه نحو تحقيق النتائج، يتمتع بخلفية أكاديمية قوية وخبرة عملية واسعة في الأتمتة الصناعية وأنظمة الطاقة. لديه قدرة مثبتة على قيادة وإدارة الفرق، ظهرت من خلال زيادة تفاعل وسائل التواصل الاجتماعي بنسبة 70% كمسؤول للموقع الإلكتروني والإشراف على الاتصالات لفرع طلابي يضم أكثر من 150 عضوًا في IEEE. يتقن مجموعة واسعة من المهارات التقنية بما في ذلك برمجة PLC/SCADA (سيمنز)، وتحليل أنظمة الطاقة باستخدام MATLAB، وتصميم الإضاءة باستخدام AutoCAD وDIALux Evo. شغوف بحل المشكلات ومتعلم مستمر، مكرس لتطبيق المعرفة التقنية لإنشاء حلول فعالة ومبتكرة.", experience_title: "الخبرة المهنية", exp1_title: "سكرتير الفرع", exp1_company: "فرع طلاب IEEE ET5 | مايو 2025 - الآن", exp1_desc1: "الإشراف على جميع الاتصالات الرسمية، بما في ذلك محاضر الاجتماعات وسجلات الأعضاء لفرع يضم أكثر من 150 عضوًا.", exp1_desc2: "تطوير وتبسيط التقارير لتقديمها للقيادة الإقليمية في IEEE.", exp2_title: "مسؤول الموقع ووسائل التواصل", exp2_company: "فرع طلاب IEEE ET5 | أكتوبر 2024 - مايو 2025", exp2_desc1: "إعادة تصميم موقع الفرع وإدارة قنوات التواصل الاجتماعي، مما أدى لزيادة التفاعل بنسبة 70%.", exp2_desc2: "إنشاء لافتات الفعاليات والمحتوى التقني للجمهور عبر الإنترنت.", exp3_title: "عضو تنظيمي وتقني", exp3_company: "فرع طلاب IEEE ET5 | أكتوبر 2022 - سبتمبر 2024", exp3_desc1: "تنسيق الخدمات اللوجستية والتخطيط لأكثر من 5 ورش عمل وفعاليات طلابية.", exp3_desc2: "إدارة وتوزيع المواد والوثائق لجميع أنشطة الفرع.", projects_title: "المشاريع", proj_subtitle: "مشروع أكاديمي", view_details: "عرض التفاصيل &larr;", proj1_title: "دائرة حساس كشف الضوء", proj1_desc: "تصميم ومحاكاة دائرة كشف ضوئي مدمجة مع نظام تحكم في الإضاءة لتقليل استهلاك الطاقة وتحسين كفاءة النظام.", proj2_title: "تحليل أنظمة الطاقة", proj2_desc: "استخدام MATLAB لنمذجة وتحليل الأعطال ومراقبة أداء النظام وتبسيط هياكل الشبكات المعقدة باستخدام نظرية المخططات.", research_title: "أبحاث وعروض تقديمية حديثة", res1: "تصميم المحولات", res2: "نظام التأريض", res3: "المرحلات الثابتة والمعالجات الدقيقة", res4: "خطوط نقل AC/DC", tech_skills_title: "المهارات التقنية", ai_tools_desc: "الذكاء الاصطناعي التوليدي للبحث والتطوير", soft_skills_title: "المهارات الشخصية", soft_skill1: "القيادة والإدارة", soft_skill2: "حل المشكلات", soft_skill3: "إدارة الوقت", soft_skill4: "التواصل", soft_skill5: "التعلم المستمر", soft_skill6: "الإلقاء والمحاضرة", education_title: "التعليم", edu1_title: "بكالوريوس في الهندسة الكهربائية", edu1_school: "أكاديمية القاهرة الجديدة (2021-2026)", edu2_title: "دبلوم في الهندسة المعمارية", edu2_school: "مدرسة دار السلام الثانوية المعمارية (2016-2021)", certs_title: "الشهادات والدورات", cert1_title: "التوزيعات الكهربائية في المباني", cert2_title: "التحكم الكلاسيكي", cert3_title: "أساسيات برمجة PLC", cert4_title: "برمجة المحركات الكهربائية", cert5_title: "DIALux Evo, AutoCAD وتقدير الأحمال", cert5_duration: "20 ساعة", cert6_title: "برمجة PLC متقدمة", cert7_title: "SCADA و HMI", cert8_title: "دورة KNX كاملة عبر الإنترنت", online_course: "دورة عبر الإنترنت", in_progress: "قيد التنفيذ", events_title: "الفعاليات والأعمال التطوعية", event1: "كايزن 2025", event2: "مختبرات سراج وفلير", event3: "إيجبس", event4: "قمة التحول التقني", event5: "اجتماع مسؤولي IEEE الربع الثاني 2025", contact_title: "تواصل معي", form_name: "اسمك", form_name_placeholder: "جون دو", form_email: "بريدك الإلكتروني", form_email_placeholder: "name@company.com", form_message: "رسالتك", form_message_placeholder: "اترك تعليقًا...", form_send: "إرسال الرسالة", links_title: "تابعني أونلاين", save_contact: "حفظ جهة الاتصال", ieee_branch: "فرع طلاب IEEE ET5", footer_text: "&copy; 2025 مينا حنا فهيم. جميع الحقوق محفوظة.", proj1_full_desc: "تضمن هذا المشروع الأكاديمي التصميم والمحاكاة الكاملة لنظام إضاءة ذكي. كان جوهر المشروع هو تطوير دائرة يمكنها اكتشاف مستويات الإضاءة المحيطة بدقة وضبط الإضاءة الاصطناعية تلقائيًا للحفاظ على الإضاءة المثلى مع تقليل استهلاك الطاقة.", key_features: "الميزات الرئيسية:", proj1_feat1: "دمج مستشعر LDR (مقاوم يعتمد على الضوء) لاستشعار الضوء.", proj1_feat2: "تنفيذ منطق تحكم لتشغيل/إيقاف الإضاءة بناءً على عتبات محددة مسبقًا.", proj1_feat3: "إجراء محاكاة للتحقق من أداء الدائرة وتوفير الطاقة.", proj1_feat4: "التركيز على إنشاء حل فعال ومنخفض التكلفة للإضاءة الآلية.", proj2_full_desc: "استخدم هذا المشروع MATLAB و Simulink لإنشاء نموذج شامل لشبكة توزيع الطاقة. كان الهدف هو تحليل سلوك النظام في ظل ظروف الأعطال المختلفة وفهم تدفق الطاقة عبر الشبكة.", key_activities: "الأنشطة الرئيسية:", proj2_act1: "نمذجة أنواع مختلفة من الأعطال (مثل خط إلى أرضي، خط إلى خط).", proj2_act2: "إجراء تحليل تدفق الحمل لتحديد مستويات الجهد وتوزيع الطاقة.", proj2_act3: "تطبيق نظرية المخططات لتبسيط وتصور طوبولوجيا الشبكة المعقدة.", proj2_act4: "إنشاء تقارير مفصلة وتصورات لأداء النظام تحت الضغط." },
+                de: { pageTitle: "Mina Hanna Faheem - Ingenieur für elektrische Energietechnik", name: "Mina Hanna Faheem", jobTitle: "Ingenieur für elektrische Energietechnik", downloadCV: '<i class="fas fa-download mr-2"></i> Lebenslauf herunterladen', nav_summary: "Übersicht", nav_experience: "Erfahrung", nav_projects: "Projekte", nav_skills: "Fähigkeiten", nav_activities: "Aktivitäten", nav_contact: "Kontakt & Links", summary_title: "Zusammenfassung", summary_text: "Ein proaktiver und ergebnisorientierter Ingenieur für elektrische Energietechnik mit einem starken akademischen Hintergrund und umfassender praktischer Erfahrung in der industriellen Automatisierung und in Energiesystemen. Nachgewiesene Fähigkeit, Teams zu führen und zu leiten, was durch eine erfolgreiche Steigerung des Social-Media-Engagements um 70% als Webmaster und die Überwachung der Kommunikation für eine IEEE-Studentenabteilung mit über 150 Mitgliedern unter Beweis gestellt wird. Beherrscht eine breite Palette technischer Fähigkeiten, einschließlich SPS/SCADA-Programmierung (Siemens), Energiesystemanalyse mit MATLAB und Lichtdesign mit AutoCAD & DIALux Evo. Ein leidenschaftlicher Problemlöser und kontinuierlicher Lerner, der sich dafür einsetzt, technisches Wissen zur Schaffung effizienter und innovativer Lösungen anzuwenden.", experience_title: "Berufserfahrung", exp1_title: "Zweigstellen-Sekretär", exp1_company: "IEEE ET5 Studentenzweig | Mai 2025 - Heute", exp1_desc1: "Überwachung der gesamten offiziellen Kommunikation, einschließlich Sitzungsprotokolle und Mitgliederakten für einen Zweig mit über 150 Mitgliedern.", exp1_desc2: "Entwicklung und Optimierung von Zweigstellenberichten zur Vorlage bei der regionalen IEEE-Führung.", exp2_title: "Webmaster & Social-Media-Beauftragter", exp2_company: "IEEE ET5 Studentenzweig | Okt 2024 - Mai 2025", exp2_desc1: "Neugestaltung der Zweig-Website und Verwaltung der Social-Media-Kanäle, wodurch das Engagement um 70 % gesteigert wurde.", exp2_desc2: "Erstellung von Veranstaltungsbannern und technischen Inhalten für Online-Zielgruppen.", exp3_title: "Organisatorisches & Technisches Mitglied", exp3_company: "IEEE ET5 Studentenzweig | Okt 2022 - Sep 2024", exp3_desc1: "Koordination von Logistik und Planung für mehr als 5 technische Workshops und Studentenveranstaltungen.", exp3_desc2: "Verwaltung der Vorbereitung und Verteilung von Materialien und Dokumentationen für alle Zweigaktivitäten.", projects_title: "Projekte", proj_subtitle: "Akademisches Projekt", view_details: "Details Ansehen &rarr;", proj1_title: "Lichterkennungssensor-Schaltung", proj1_desc: "Entwurf und Simulation einer Lichterkennungsschaltung, die in die Lichtsteuerung integriert ist, um den Energieverbrauch zu senken und die Systemeffizienz zu verbessern.", proj2_title: "Analyse von Energiesystemen", proj2_desc: "Verwendung von MATLAB zur Modellierung und Analyse von Fehlern, Überwachung der Systemleistung und Vereinfachung komplexer Netzwerkstrukturen mithilfe der Graphentheorie.", research_title: "Aktuelle Forschung & Präsentationen", res1: "Transformatoren-Design", res2: "Erdungssystem", res3: "Statische & Mikroprozessor-Relais", res4: "AC/DC-Übertragungsleitungen", tech_skills_title: "Technische Fähigkeiten", ai_tools_desc: "Generative KI für F&E", soft_skills_title: "Soziale Kompetenzen", soft_skill1: "Führung & Management", soft_skill2: "Problemlösung", soft_skill3: "Zeitmanagement", soft_skill4: "Kommunikation", soft_skill5: "Kontinuierliches Lernen", soft_skill6: "Vortragen", education_title: "Ausbildung", edu1_title: "Bachelor of Electrical Engineering", edu1_school: "New Cairo Academy (2021-2026)", edu2_title: "Diplom in Architektur", edu2_school: "Dar El Salam Architekturschule (2016-2021)", certs_title: "Zertifikate & Kurse", cert1_title: "Elektroverteilung in Gebäuden", cert2_title: "Klassische Steuerung", cert3_title: "SPS-Grundprogrammierung", cert4_title: "Programmierung von Elektromotoren und Antrieben", cert5_title: "DIALux Evo, AutoCAD & Lastschätzung", cert5_duration: "20 Stunden", cert6_title: "Fortgeschrittene SPS-Programmierung", cert7_title: "SCADA und HMI", cert8_title: "KNX Online-Vollkurs", online_course: "Online-Kurs", in_progress: "Laufend", events_title: "Veranstaltungen & Ehrenamt", event1: "Kaizen 2025", event2: "Siraj & Flare Labs", event3: "EGYPES", event4: "Tech Shift Summit", event5: "IEEE-Offizierstreffen Q2 2025", contact_title: "Kontakt aufnehmen", form_name: "Ihr Name", form_name_placeholder: "Max Mustermann", form_email: "Ihre E-Mail", form_email_placeholder: "name@firma.com", form_message: "Ihre Nachricht", form_message_placeholder: "Hinterlassen Sie einen Kommentar...", form_send: "Nachricht Senden", links_title: "Finden Sie mich online", save_contact: "Kontakt speichern", ieee_branch: "IEEE ET5 SB", footer_text: "&copy; 2025 Mina Hanna Faheem. Alle Rechte vorbehalten.", proj1_full_desc: "Dieses akademische Projekt umfasste den vollständigen Entwurf und die Simulation eines intelligenten Beleuchtungssystems. Kern des Projekts war die Entwicklung einer Schaltung, die Umgebungslichtpegel genau erfassen und die künstliche Beleuchtung automatisch anpassen kann, um eine optimale Ausleuchtung bei minimalem Energieverbrauch zu gewährleisten.", key_features: "Hauptmerkmale:", proj1_feat1: "Integration von LDR (Light Dependent Resistor) zur Lichterkennung.", proj1_feat2: "Implementierte Steuerlogik zum Ein- und Ausschalten der Beleuchtung basierend auf voreingestellten Schwellenwerten.", proj1_feat3: "Durchgeführte Simulation zur Validierung der Schaltungsleistung und Energieeinsparungen.", proj1_feat4: "Fokus auf die Schaffung einer effizienten und kostengünstigen Lösung für die automatisierte Beleuchtung.", proj2_full_desc: "In diesem Projekt wurden MATLAB und Simulink verwendet, um ein umfassendes Modell eines Stromverteilungsnetzes zu erstellen. Ziel war es, das Systemverhalten unter verschiedenen Fehlerbedingungen zu analysieren und den Stromfluss im gesamten Netzwerk zu verstehen.", key_activities: "Hauptaktivitäten:", proj2_act1: "Modellierung verschiedener Fehlertypen (z. B. Leitung zu Erde, Leitung zu Leitung).", proj2_act2: "Durchführung einer Lastflussanalyse zur Bestimmung von Spannungsniveaus und Energieverteilung.", proj2_act3: "Anwendung der Graphentheorie zur Vereinfachung und Visualisierung der komplexen Netzwerktopologie.", proj2_act4: "Erstellung detaillierter Berichte und Visualisierungen der Systemleistung unter Belastung." },
+                es: { pageTitle: "Mina Hanna Faheem - Ingeniero en Energía Eléctrica", name: "Mina Hanna Faheem", jobTitle: "Ingeniero en Energía Eléctrica", downloadCV: '<i class="fas fa-download mr-2"></i> Descargar CV', nav_summary: "Resumen", nav_experience: "Experiencia", nav_projects: "Proyectos", nav_skills: "Habilidades", nav_activities: "Actividades", nav_contact: "Contacto y Enlaces", summary_title: "Resumen", summary_text: "Un Ingeniero en Energía Eléctrica proactivo y orientado a resultados con una sólida formación académica y una amplia experiencia práctica en automatización industrial y sistemas de potencia. Capacidad demostrada para liderar y gestionar equipos, demostrada al aumentar con éxito la participación en redes sociales en un 70% como Webmaster y supervisar las comunicaciones para una rama estudiantil de IEEE con más de 150 miembros. Competente en una amplia gama de habilidades técnicas, incluida la programación de PLC/SCADA (Siemens), el análisis de sistemas de potencia con MATLAB y el diseño de iluminación con AutoCAD y DIALux Evo. Un apasionado solucionador de problemas y aprendiz continuo, dedicado a aplicar el conocimiento técnico para crear soluciones eficientes e innovadoras.", experience_title: "Experiencia Profesional", exp1_title: "Secretario de Rama", exp1_company: "Rama Estudiantil IEEE ET5 | Mayo 2025 - Presente", exp1_desc1: "Supervisar todas las comunicaciones oficiales, incluidas las actas de las reuniones y los registros de miembros para una rama de más de 150 miembros.", exp1_desc2: "Desarrollar y optimizar informes de rama para su presentación a la dirección regional de IEEE.", exp2_title: "Webmaster y Oficial de Redes Sociales", exp2_company: "Rama Estudiantil IEEE ET5 | Oct 2024 - May 2025", exp2_desc1: "Rediseñó el sitio web de la rama y administró los canales de redes sociales, aumentando la participación en un 70%.", exp2_desc2: "Creó pancartas de eventos y contenido técnico para audiencias en línea.", exp3_title: "Miembro Organizativo y Técnico", exp3_company: "Rama Estudiantil IEEE ET5 | Oct 2022 - Sep 2024", exp3_desc1: "Coordinó la logística y la planificación de más de 5 talleres técnicos y eventos estudiantiles.", exp3_desc2: "Gestionó la preparación y distribución de materiales y documentación para todas las actividades de la rama.", projects_title: "Proyectos", proj_subtitle: "Proyecto Académico", view_details: "Ver Detalles &rarr;", proj1_title: "Circuito Sensor de Detección de Luz", proj1_desc: "Diseñó y simuló un circuito de detección de luz integrado con control de iluminación para reducir el uso de energía y mejorar la eficiencia del sistema.", proj2_title: "Análisis de Sistemas de Potencia", proj2_desc: "Utilizó MATLAB para modelar y analizar fallas, monitorear el rendimiento del sistema y simplificar estructuras de red complejas utilizando la teoría de grafos.", research_title: "Investigaciones y Presentaciones Recientes", res1: "Diseño de Transformadores", res2: "Sistema de Puesta a Tierra", res3: "Relés Estáticos y de Microprocesador", res4: "Líneas de Transmisión AC/DC", tech_skills_title: "Habilidades Técnicas", ai_tools_desc: "IA generativa para I+D", soft_skills_title: "Habilidades Blandas", soft_skill1: "Liderazgo y Gestión", soft_skill2: "Resolución de Problemas", soft_skill3: "Gestión del Tiempo", soft_skill4: "Comunicación", soft_skill5: "Aprendizaje Continuo", soft_skill6: "Docencia", education_title: "Educación", edu1_title: "Licenciatura en Ingeniería Eléctrica", edu1_school: "Academia de Nuevo Cairo (2021-2026)", edu2_title: "Diploma en Arquitectura", edu2_school: "Escuela de Arquitectura Dar El Salam (2016-2021)", certs_title: "Certificados y Cursos", cert1_title: "Distribución Eléctrica en Edificios", cert2_title: "Control Clásico", cert3_title: "Programación Básica de PLC", cert4_title: "Programación de Motores Eléctricos y Accionamientos", cert5_title: "DIALux Evo, AutoCAD y Estimación de Carga", cert5_duration: "20 horas", cert6_title: "Programación Avanzada de PLC", cert7_title: "SCADA y HMI", cert8_title: "Curso Completo Online de KNX", online_course: "Curso en Línea", in_progress: "En Progreso", events_title: "Eventos y Voluntariado", event1: "Kaizen 2025", event2: "Laboratorios Siraj & Flare", event3: "EGYPES", event4: "Cumbre de Cambio Tecnológico", event5: "Reunión de Oficiales IEEE T2 2025", contact_title: "Ponerse en Contacto", form_name: "Su Nombre", form_name_placeholder: "Juan Pérez", form_email: "Su Correo Electrónico", form_email_placeholder: "nombre@empresa.com", form_message: "Su Mensaje", form_message_placeholder: "Deje un comentario...", form_send: "Enviar Mensaje", links_title: "Encuéntrame en línea", save_contact: "Guardar Contacto", ieee_branch: "Rama Estudiantil IEEE ET5", footer_text: "&copy; 2025 Mina Hanna Faheem. Todos los derechos reservados.", proj1_full_desc: "Este proyecto académico implicó el diseño y la simulación completos de un sistema de iluminación inteligente. El núcleo del proyecto fue desarrollar un circuito que pudiera detectar con precisión los niveles de luz ambiental y ajustar automáticamente la iluminación artificial para mantener una iluminación óptima y minimizar el consumo de energía.", key_features: "Características Clave:", proj1_feat1: "Integración de LDR (Resistencia Dependiente de la Luz) para la detección de luz.", proj1_feat2: "Lógica de control implementada para encender/apagar la iluminación según umbrales preestablecidos.", proj1_feat3: "Simulación realizada para validar el rendimiento del circuito y el ahorro de energía.", proj1_feat4: "Enfoque en la creación de una solución eficiente y rentable para la iluminación automatizada.", proj2_full_desc: "Este proyecto utilizó MATLAB y Simulink para crear un modelo completo de una red de distribución de energía. El objetivo era analizar el comportamiento del sistema en diversas condiciones de falla y comprender el flujo de energía en toda la red.", key_activities: "Actividades Clave:", proj2_act1: "Modelado de varios tipos de fallas (p. ej., línea a tierra, línea a línea).", proj2_act2: "Análisis de flujo de carga realizado para determinar los niveles de voltaje y la distribución de energía.", proj2_act3: "Aplicación de la teoría de grafos para simplificar y visualizar la topología de red compleja.", proj2_act4: "Generación de informes detallados y visualizaciones del rendimiento del sistema bajo estrés." }
+            };
+
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    if (lightIcon) lightIcon.classList.remove('hidden');
+                    if (darkIcon) darkIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                    if (darkIcon) darkIcon.classList.remove('hidden');
+                    if (lightIcon) lightIcon.classList.add('hidden');
+                }
+            }
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                    localStorage.setItem('theme', newTheme);
+                    applyTheme(newTheme);
+                });
+            }
+            
+            function setLanguage(lang) {
+                const langData = translations[lang] || translations.en;
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.getAttribute('data-translate-key');
+                    if (langData[key]) {
+                        el.innerHTML = langData[key];
+                    } else if (translations.en[key]) {
+                        el.innerHTML = translations.en[key]; // Fallback to English
+                    }
+                });
+                
+                document.querySelectorAll('[data-translate-key-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-translate-key-placeholder');
+                    if(langData[key]) {
+                        el.placeholder = langData[key];
+                    } else if (translations.en[key]) {
+                        el.placeholder = translations.en[key];
+                    }
+                });
+
+                document.title = langData.pageTitle || "Mina Hanna Faheem - Electrical Power Engineer";
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+                localStorage.setItem('language', lang);
+                
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+            }
+
+            const langSwitcher = document.getElementById('lang-switcher');
+            if (langSwitcher) {
+                langSwitcher.addEventListener('click', (e) => {
+                    if (e.target.dataset.lang) {
+                        setLanguage(e.target.dataset.lang);
+                    }
+                });
+            }
+
+            const savedLang = localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
+
+            try {
+                emailjs.init('eGPcQe73NVVaMx2C-');
+            } catch(e) {
+                console.error("EmailJS init error:", e);
+            }
+            
+            const tabs = document.querySelectorAll('[role="tab"]');
+            const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+                    tabPanels.forEach(p => p.classList.add('hidden'));
+
+                    const targetPanelId = tab.getAttribute('aria-controls');
+                    const targetPanel = document.getElementById(targetPanelId);
+
+                    tab.setAttribute('aria-selected', 'true');
+                    if (targetPanel) {
+                        targetPanel.classList.remove('hidden');
+                        targetPanel.querySelectorAll('.reveal').forEach(el => setTimeout(() => el.classList.add('visible'), 100));
+                    }
+                });
+            });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+            
+            let lastFocusedElement; 
+
+            const openModal = (modal) => {
+                if (modal) {
+                    lastFocusedElement = document.activeElement; 
+                    modal.classList.remove('hidden');
+                    
+                    if(modal.classList.contains('gallery-modal')) {
+                        const swiper = new Swiper(modal.querySelector('.swiper'), {
+                            loop: true,
+                            pagination: { el: '.swiper-pagination', clickable: true },
+                            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                        });
+                    }
+                    setTimeout(() => {
+                        modal.classList.add('opacity-100');
+                        const content = modal.querySelector('.modal-content, .gallery-modal-content');
+                        if (content) content.classList.remove('scale-95');
+                        modal.querySelector('.modal-close-button').focus();
+                    }, 10);
+                }
+            };
+            
+            const closeModal = (modal) => {
+                 if (modal) {
+                     modal.classList.remove('opacity-100');
+                     const content = modal.querySelector('.modal-content, .gallery-modal-content');
+                     if(content) content.classList.add('scale-95');
+                     setTimeout(() => {
+                        modal.classList.add('hidden');
+                        if (lastFocusedElement) lastFocusedElement.focus(); 
+                     }, 300);
+                 }
+            };
+
+            document.body.addEventListener('click', function(event) {
+                const trigger = event.target.closest('.modal-trigger');
+                if (trigger) {
+                    const modal = document.querySelector(trigger.dataset.modalTarget);
+                    openModal(modal);
+                    return;
+                }
+                
+                const closeButton = event.target.closest('.modal-close-button');
+                if(closeButton) {
+                      const modal = closeButton.closest('.modal-overlay');
+                      closeModal(modal);
+                      return;
+                }
+
+                if (event.target.classList.contains('modal-overlay')) {
+                    closeModal(event.target);
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    const openModal = document.querySelector('.modal-overlay:not(.hidden)');
+                    if (openModal) {
+                        closeModal(openModal);
+                    }
+                }
+            });
+
+            const contactForm = document.getElementById('contact-form');
+            const formFeedback = document.getElementById('form-feedback');
+            const submitButton = document.getElementById('submit-button');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                    const serviceID = 'service_w8sfr09';
+                    const templateID = 'template_6hx4k5r';
+                    emailjs.sendForm(serviceID, templateID, this)
+                        .then(() => {
+                            contactForm.style.display = 'none';
+                            formFeedback.classList.remove('hidden');
+                            formFeedback.innerHTML = `<i class="fas fa-check-circle text-green-500 text-4xl mb-3"></i><h3 class="text-xl font-bold">Thank You!</h3><p class="text-muted">Your message has been sent successfully.</p>`;
+                        }, (err) => {
+                           submitButton.disabled = false;
+                           submitButton.innerText = 'Send Message';
+                           formFeedback.classList.remove('hidden');
+                           formFeedback.innerHTML = `<i class="fas fa-exclamation-circle text-red-500 text-4xl mb-3"></i><h3 class="text-xl font-bold">Oops!</h3><p class="text-muted">Something went wrong. Please try again later.</p>`;
+                        });
+                });
+            }
+
+            const galleries = {
+                'gallery-siraj': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/siraj//1750662416006.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/siraj//1750662416020.jpg'],
+                'gallery-arab-contractors': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/arab-contractors//1750661500945.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/arab-contractors//1750661500953.jpg'],
+                'gallery-classic-control': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662229095.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//HA.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662228828.png'],
+                'gallery-plc-basic': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662229068.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//HA2.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//HA1.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662228877.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662228894.png'],
+                'gallery-motor-drive': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662229080.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//1750662228862.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//PXL_20240712_225017388.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//PXL_20240712_225104756.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/habasic//PXL_20240712_225147795.jpg'],
+                'gallery-dialux': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20112425.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20102611.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20102742.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20102856.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20111636.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20111645.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20111655.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20111704.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20111711.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/pre-deploma//Screenshot%202025-06-23%20111721.png'],
+                'gallery-plc-advanced': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464510.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464547.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464531.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464557.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464575.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464591.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/ha-advanced//1750662464605.jpg'],
+                'gallery-tech-shift': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384013.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384024.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384039.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384055.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384070.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384084.jpg', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/techshift//1750662384098.jpg'],
+                'gallery-knx': ['https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/knx//knx%201.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/knx//knx%202.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/knx//knx%203.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/knx//knx%204.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/knx//knx%205.png', 'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/knx//knx%206.png'],
+                'gallery-officers-meeting': [
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/1.jpg',
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/2.jpg',
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/3.jpg',
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/4.jpg',
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/5.jpg',
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/6.jpg',
+                    'https://uzcrjhhvwgllsdsvftuj.supabase.co/storage/v1/object/public/officers-meeting-q2/7.jpg'
+                ]
+            };
+
+            const galleryModalsContainer = document.getElementById('gallery-modals');
+            for (const id in galleries) {
+                const images = galleries[id];
+                const slides = images.map(src => `<div class="swiper-slide"><img src="${src}" loading="lazy" /></div>`).join('');
+                const modalHTML = `
+                    <div id="${id}" class="modal-overlay gallery-modal fixed inset-0 z-30 flex items-center justify-center p-4 hidden opacity-0">
+                        <div class="gallery-modal-content rounded-lg max-w-4xl w-full p-4 relative transform scale-95">
+                            <button class="modal-close-button absolute top-2 right-2 z-10 text-muted hover:text-color text-3xl" aria-label="Close gallery">&times;</button>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">${slides}</div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>`;
+                galleryModalsContainer.innerHTML += modalHTML;
+            }
+
+            const saveContactBtn = document.getElementById('save-contact-btn');
+            if (saveContactBtn) {
+                const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:Eng Mina Hanna Faheem
+N:Eng Mina Hanna;;
+EMAIL:minahanna@ieee.org
+EMAIL:en9MinaHanna@gmail.com
+TEL;TYPE=WORK:‪+20 12 03006152‬
+TITLE:Electrical Power Engineer 
+URL:https://hihello.me/p/95cd7883-dcd4-41f0-840a-ce1623f6b824
+URL;TYPE=LINKEDIN:https://linkedin.com/in/engminahanna
+URL;TYPE=WHATSAPP:https://wa.me/+201203006152
+URL;TYPE=LINK:https://eng-mina-hanna.github.io/My-Resume/
+URL;TYPE=FACEBOOK:https://www.facebook.com/Eng.Mina.H.F
+URL;TYPE=YOUTUBE:https://youtube.com/@eng-minahanna
+URL:${window.location.href}
+END:VCARD`;
+
+                const vcardData = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vCard);
+                saveContactBtn.setAttribute('href', vcardData);
+            }
+        });
+    </script>
+</body>
+</html>
